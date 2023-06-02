@@ -1,0 +1,8 @@
+git clone ** -> copiar o codigo da branch master do repositório passado
+
+git branch -> lista as branches criadas marcando a que está sendo usada
+
+git checkout -b <nome> -> cria e seleciona um branch
+
+git checkout <nome> -> seleciona a branche passada em <nome>
+
