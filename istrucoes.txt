@@ -12,4 +12,8 @@ git add --all -> adiciona à fila de comit todos os arquivos que sofreram altera
 
 git add <arquivo> -> adiciona à fila de comit os arquivos que listados como parâmetro
 
-git commit -am -> criação de um bloque de arquivos À serem submetidos ([-am] a = adiciona os arquivos ainda não inserios / m = somente os arquivos modificados)
+git commit -am <mensagem> -> criação de um bloque de arquivos À serem submetidos ([-am] a = adiciona os arquivos ainda não inserios / m = somente os arquivos modificados) <mensagem> referencia a mensagem que será exibida no repositorio
+
+git push -> submete ao repositorio os arquivos empacotados
+
+git push --set-upstream origin dev -> cria a branch no repositorio (utilizar caso receba erro de não existência desta)
