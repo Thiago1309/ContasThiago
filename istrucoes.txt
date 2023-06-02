@@ -6,3 +6,10 @@ git checkout -b <nome> -> cria e seleciona um branch
 
 git checkout <nome> -> seleciona a branche passada em <nome>
 
+git status -> exibe os arquivos que sofreram alterações e não foram comitados
+
+git add --all -> adiciona à fila de comit todos os arquivos que sofreram alterações
+
+git add <arquivo> -> adiciona à fila de comit os arquivos que listados como parâmetro
+
+git commit -am -> criação de um bloque de arquivos À serem submetidos ([-am] a = adiciona os arquivos ainda não inserios / m = somente os arquivos modificados)
