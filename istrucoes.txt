@@ -18,6 +18,6 @@ git push -> submete ao repositorio os arquivos empacotados
 
 git push --set-upstream origin dev -> cria a branch no repositorio (utilizar caso receba erro de não existência desta)
 
-git pull -> baixa os arquivos do repositorio
+git pull -> baixa os arquivos da branche
 
 code . -> abre a pasta do terminal no vscode
