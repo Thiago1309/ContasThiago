@@ -48,7 +48,7 @@ class BanksController extends Controller
         return back();
     }
 
-    private function bank_validation($bank){
+    private function bank_validation(Request $bank){
         if($bank->has(['name','account','agency','user_id']))
         {
             if($bank->input('balance') < 0)
