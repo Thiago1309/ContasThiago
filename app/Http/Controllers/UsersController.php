@@ -12,13 +12,13 @@ class UsersController extends Controller
         public function index(){
             $users = User::all();
     
-            return view('user.index',compact('users'));
+            return view('users.index',compact('users'));
         }
     
         public function create(Request $request){
             $user = new user();
     
-            return view('user.create',compact('user'));
+            return view('users.create',compact('user'));
         }
     
         public function store(Request $request){
@@ -26,8 +26,15 @@ class UsersController extends Controller
                 if(!$request->has(['name','email','password'])){
                     throw new Exception('Existem Campos Obrigatórios à serem preenchdos');
                 }
-                
-                User::create($request->all());
+                if(User::where('email',$request->get('email'))->count() > 0)
+                {
+                    throw new Exception('Email já cadastrado!');
+                }
+
+                $password = bcrypt($request->get('password'));
+                $input = $request->all();
+                $input['password'] = $password;
+                User::create($input);
 
                 return back()->with(['sucsses' => 'Usuário Salvo com sucesso!']);
             }
@@ -36,22 +43,42 @@ class UsersController extends Controller
                 report($e);
                 return back()->withInput()->with(['errors' => $e->getMessage()]);
             }
-            
-    
         }
     
         public function edit(Request $request, User $user){
     
-            return view('user.edit',compact('user'));
+            return view('users.edit',compact('user'));
         }
     
         public function update(Request $request, User $user){
-            $user->update($request->all());
-    
-            return back();
+            try{
+                if(!$request->has(['name','email'])){
+                    throw new Exception('Existem Campos Obrigatórios à serem preenchdos');
+                }
+                if(User::where('email',$request->get('email'))->where('id','<>',$user->id)->count() > 0)
+                {
+                    throw new Exception('Email já cadastrado!');
+                }
+                
+                $input = $request->all();
+                
+                if($request->get('password')){
+                    $password = bcrypt($request->get('password'));
+                    $input['password'] = $password;
+                }
+                
+                $user->update($input);
+                
+                return back()->with(['sucsses' => 'Usuário Salvo com sucesso!']);
+            }
+            catch(Exception $e){
+                
+                report($e);
+                return back()->withInput()->with(['errors' => $e->getMessage()]);
+            }            
         }
     
-        public function delete(Request $request, User $user){
+        public function destroy(Request $request, User $user){
             $user->delete();
     
             return back();
