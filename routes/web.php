@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\BanksController;
-use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\{UsersController,
+                            BanksController,
+                            TransactionsController,
+                            DashboardController};
 
 
 /*
@@ -17,8 +18,10 @@ use App\Http\Controllers\TransactionsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(DashboardController::class)
+->name('dashboard.')
+->group(function(){
+    Route::get('/','index')->name('index');
 });
 
 Route::controller(UsersController::class)
