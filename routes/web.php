@@ -28,7 +28,7 @@ Route::controller(UsersController::class)
 ->name('users.')
 ->prefix('users')
 ->group(function(){
-    
+     
 });
 
 Route::resource('users',UsersController::class);
