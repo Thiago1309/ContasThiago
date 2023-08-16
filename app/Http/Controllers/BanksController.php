@@ -13,6 +13,8 @@ class BanksController extends Controller
     public function index(){
         $banks = Bank::all();
 
+        //dd($banks);
+
         return view('banks.index',compact('banks'));
     }
 

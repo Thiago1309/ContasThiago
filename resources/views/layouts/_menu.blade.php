@@ -20,10 +20,26 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link active">
+                    <a href="{{ route('users.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>
                             Usuários
+                        </p>
+                    </a>
+            </li>
+            <li class="nav-item">
+                    <a href="{{ route('banks.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-university"></i>
+                        <p>
+                            Bancos
+                        </p>
+                    </a>
+            </li>
+            <li class="nav-item">
+                    <a href="{{ route('transactions.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-exchange-alt"></i>
+                        <p>
+                            Lançamentos
                         </p>
                     </a>
             </li>

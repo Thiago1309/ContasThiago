@@ -11,7 +11,7 @@ class UsersController extends Controller
         //index - create - store - edit - update - delete
         public function index(){
             $users = User::all();
-    
+            
             return view('users.index',compact('users'));
         }
     
