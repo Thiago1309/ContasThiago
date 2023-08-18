@@ -20,4 +20,8 @@ class Transaction extends Model
         'status',
         'bank_id'
     ];
+
+    public function bank(){
+        return $this->belongsTo(Bank::class);
+    }
 }

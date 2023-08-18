@@ -45,8 +45,8 @@
                                         <td>{{ $transaction->realization_date }}</td>
                                         <td>{{ $transaction->payment_date }}</td>
                                         <td>{{ $transaction->status }}</td>
-                                        <td>a</td>
-                                        <td>b</td>
+                                        <td>{{ $transaction->bank->agency }}</td>
+                                        <td>{{ $transaction->bank->account }}</td>
                                         <td>{{ $transaction->value }}</td>
                                     </tr>
                                 @endforeach

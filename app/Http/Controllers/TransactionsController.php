@@ -14,7 +14,7 @@ class TransactionsController extends Controller
     //index - create - store - edit - update - delete
     public function index(){
         $transactions = Transaction::all();
-
+        
         return view('transactions.index',compact('transactions'));
     }
 
